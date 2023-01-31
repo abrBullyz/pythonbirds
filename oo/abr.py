@@ -1,6 +1,8 @@
 class Person:
     olhos = 2
     pernas = 2
+    dedos_maos = 10
+    dedos_pes = 10
 
     def __init__(self, *filhos,  nome=None, idade=35, email = None):
         self.filhos = list(filhos)
@@ -11,6 +13,14 @@ class Person:
     def cumprimentar(self):
         return f'Ola {id(self)}'
 
+    @staticmethod
+    def metodo_estatico():
+        return 50
+
+    @classmethod
+    def nome_e_atributos_declasse(cls):
+        return f'{cls} - olhos - {cls.pernas}'
+
 if __name__ == '__main__':
 
 
@@ -20,17 +30,20 @@ if __name__ == '__main__':
     abr.sobrenome = 'Vanelli'
     b = Person(clara, nome='Beth')
 
+    abr.email ='abrbullyz@gmail.com'
 
-    print(abr.pernas)
+    print(F' PERNAS: {abr.pernas}')
     b.sobrenome = 'Bianchi Vanelli'
-    print(abr.nome)
+
+    print(F' ABR NOME: {abr.nome}')
     for filho in abr.filhos:
         print(filho.nome)
 
 
 
-    print(clara.nome)
+    print(F' CLARA NOME: {clara.nome}')
 
+    print(' __dict__')
     print(abr.__dict__)
     print(noah.__dict__)
     print(clara.__dict__)
@@ -42,3 +55,16 @@ if __name__ == '__main__':
     for filho in b.filhos:
         print(filho.nome)
 
+    b.funcao = 'administradora'
+
+    print(b.__dict__)
+
+    """Delete atributes """
+    del abr.filhos
+    print(abr.__dict__)
+
+    print(id(Person.olhos) , id(Person.pernas))
+    print(Person.metodo_estatico())
+    print(abr.metodo_estatico())
+
+    print(Person.nome_e_atributos_declasse(), abr.nome_e_atributos_declasse())
