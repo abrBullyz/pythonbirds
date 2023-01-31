@@ -127,6 +127,8 @@ WEAST = 'Weast'
 
 
 class Direcao:
+    """ criado global com valor de dicionaerio que aponta um valor para cada chave, ecemplo Norte : East ou seja dado a chave norte mostre o valor east """
+
     turn_right_dct = {
         NORTH: EAST, EAST: SOUTH, SOUTH: WEAST, WEAST: NORTH
     }
