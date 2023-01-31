@@ -89,6 +89,28 @@ DIRECAO
 
 
 """
+
+
+class Carro:
+    def __init__(self, direcao, motor):
+        self.motor = motor
+        self.direcao = direcao
+
+    def calcula_velocidade(self):
+        return self.motor.velocidade
+    def acelerar(self):
+        self.motor.velocidade()
+    def frear(self):
+        self.motor.frear()
+
+    def calcula_direca(self):
+        return self.direcao.onde
+
+    def goto_right(self):
+        self.direcao.goto_right()
+
+    def goto_left(self):
+        self.direcao.goto_left()
 class Motor:
     def __init__(self):
        self.velocidade = 0
